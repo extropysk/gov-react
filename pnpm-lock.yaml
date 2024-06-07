@@ -102,9 +102,6 @@ devDependencies:
   lint-staged:
     specifier: 13.2.3
     version: 13.2.3
-  postcss:
-    specifier: 8.4.27
-    version: 8.4.27
   prettier:
     specifier: 3.0.1
     version: 3.0.1
