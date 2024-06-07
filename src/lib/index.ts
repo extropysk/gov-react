@@ -1,2 +1,3 @@
-import 'govuk-frontend/dist/govuk/govuk-frontend.min.css'
+import './index.scss'
+
 export * from './components'

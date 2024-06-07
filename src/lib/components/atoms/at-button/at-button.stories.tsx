@@ -1,8 +1,7 @@
+import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
-import { AtButton, AtButtonProps, AT_BUTTON_VARIANT } from '.'
+import { AT_BUTTON_VARIANT, AtButton, AtButtonProps } from '.'
 import { objectValuesToControls } from '../../../storybook-utils'
-import { Meta } from '@storybook/react'
-import { StoryFn } from '@storybook/react'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof AtButton> = {
@@ -20,12 +19,12 @@ export default meta
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: StoryFn<typeof AtButton> = (args: AtButtonProps) => <AtButton {...args} />
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
+Default.args = {
   label: 'Button',
-  variant: 'PRIMARY',
-  onClick: () => alert('clicking primary'),
+  variant: 'DEFAULT',
+  onClick: () => alert('clicking default'),
 }
 
 export const Secondary = Template.bind({})
@@ -34,10 +33,10 @@ Secondary.args = {
   variant: 'SECONDARY',
 }
 
-export const Tertiary = Template.bind({})
-Tertiary.args = {
+export const Warning = Template.bind({})
+Warning.args = {
   label: 'Button',
-  variant: 'TERTIARY',
+  variant: 'WARNING',
 }
 
 export const Disabled = Template.bind({})

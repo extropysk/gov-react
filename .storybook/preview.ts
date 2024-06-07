@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react'
-import 'govuk-frontend/dist/govuk/govuk-frontend.min.css'
+import '../src/lib/index.scss'
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },

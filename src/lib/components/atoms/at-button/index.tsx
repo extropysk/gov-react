@@ -1,16 +1,16 @@
 import { ButtonHTMLAttributes } from 'react'
 
 export const AT_BUTTON_VARIANT = {
-  PRIMARY: 'primary',
+  DEFAULT: 'default',
   SECONDARY: 'secondary',
-  TERTIARY: 'tertiary',
+  WARNING: 'warning',
 } as const
 export type AtButtonVariant = keyof typeof AT_BUTTON_VARIANT
 
 export const variantClasses: Record<AtButtonVariant, string> = {
-  PRIMARY: 'bg-green-200 hover:bg-green-400 active:bg-green-500',
-  SECONDARY: 'bg-blue-200 hover:bg-blue-400 active:bg-blue-500',
-  TERTIARY: 'bg-red-200 hover:bg-red-400 active:bg-red-500',
+  DEFAULT: '',
+  SECONDARY: 'govuk-button--secondary',
+  WARNING: 'govuk-button--warning',
 }
 
 export interface AtButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -19,10 +19,16 @@ export interface AtButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isDisabled?: boolean
 }
 
-export const AtButton = ({ label, variant = 'PRIMARY', isDisabled = false, onClick }: AtButtonProps) => {
+export const AtButton = ({ label, variant = 'DEFAULT', isDisabled = false, onClick }: AtButtonProps) => {
   return (
-    <button type="submit" className="govuk-button" data-module="govuk-button">
-      Save and continue
+    <button
+      className={`govuk-button ${variantClasses[variant]} ${
+        isDisabled ? 'bg-gray-300 text-slate-600 cursor-not-allowed pointer-events-none' : ''
+      }`}
+      disabled={isDisabled}
+      onClick={isDisabled ? onClick : undefined}
+    >
+      {label}
     </button>
   )
 }
