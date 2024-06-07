@@ -33,6 +33,7 @@
     "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
     "govuk-frontend": "^5.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"

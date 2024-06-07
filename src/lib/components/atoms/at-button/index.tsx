@@ -1,33 +1,28 @@
-import { ButtonHTMLAttributes } from 'react'
+import { VariantProps, cva, cx } from 'class-variance-authority'
 
-export const AT_BUTTON_VARIANT = {
-  DEFAULT: 'default',
-  SECONDARY: 'secondary',
-  WARNING: 'warning',
-} as const
-export type AtButtonVariant = keyof typeof AT_BUTTON_VARIANT
+const buttonVariants = cva('govuk-button', {
+  variants: {
+    variant: {
+      default: '',
+      secondary: 'govuk-button--secondary',
+      warning: 'govuk-button--warning',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+})
 
-export const variantClasses: Record<AtButtonVariant, string> = {
-  DEFAULT: '',
-  SECONDARY: 'govuk-button--secondary',
-  WARNING: 'govuk-button--warning',
-}
-
-export interface AtButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface AtButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   label: string
-  variant?: AtButtonVariant
-  isDisabled?: boolean
+  disabled?: boolean
 }
 
-export const AtButton = ({ label, variant = 'DEFAULT', isDisabled = false, onClick }: AtButtonProps) => {
+export const AtButton = ({ label, variant, disabled, onClick }: AtButtonProps) => {
   return (
-    <button
-      className={`govuk-button ${variantClasses[variant]} ${
-        isDisabled ? 'bg-gray-300 text-slate-600 cursor-not-allowed pointer-events-none' : ''
-      }`}
-      disabled={isDisabled}
-      onClick={isDisabled ? onClick : undefined}
-    >
+    <button className={cx(buttonVariants({ variant }))} disabled={disabled} onClick={onClick}>
       {label}
     </button>
   )
