@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  govuk-frontend:
+    specifier: ^5.4.0
+    version: 5.4.0
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -6783,6 +6786,11 @@ packages:
     dependencies:
       get-intrinsic: 1.2.0
     dev: true
+
+  /govuk-frontend@5.4.0:
+    resolution: {integrity: sha512-F3YwQYrYQqIPfNxsoph6O78Ey1unCB6cy6omx8KeWY9G504lWZFBSIaiUCma1jNLw9bOUU7Ui+tXG09jjqy0Mw==}
+    engines: {node: '>= 4.2.0'}
+    dev: false
 
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
