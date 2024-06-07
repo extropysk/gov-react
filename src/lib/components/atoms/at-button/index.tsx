@@ -1,4 +1,6 @@
+import { Slot } from '@radix-ui/react-slot'
 import { VariantProps, cva, cx } from 'class-variance-authority'
+import React from 'react'
 
 const buttonVariants = cva('govuk-button', {
   variants: {
@@ -17,13 +19,17 @@ export interface AtButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   label: string
-  disabled?: boolean
+  asChild?: boolean
 }
 
-export const AtButton = ({ label, variant, disabled, onClick }: AtButtonProps) => {
-  return (
-    <button className={cx(buttonVariants({ variant }))} disabled={disabled} onClick={onClick}>
-      {label}
-    </button>
-  )
-}
+export const AtButton = React.forwardRef<HTMLButtonElement, AtButtonProps>(
+  ({ className, variant, label, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'button'
+    return (
+      <Comp className={cx(buttonVariants({ variant, className }))} ref={ref} {...props}>
+        {label}
+      </Comp>
+    )
+  },
+)
+AtButton.displayName = 'Button'
