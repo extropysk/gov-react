@@ -1,11 +1,11 @@
-import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { AtButton } from './index'
+import { describe, expect, it } from 'vitest'
+import { Button } from './index'
 
-describe('AtButton', () => {
+describe('Button', () => {
   it('should render', async () => {
     const label = 'test button'
-    render(<AtButton label={label} />)
+    render(<Button label={label} />)
     expect(screen.getByText(label)).toBeDefined()
   })
 })

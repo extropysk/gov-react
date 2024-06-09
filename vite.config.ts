@@ -20,6 +20,13 @@ const app = async (): Promise<UserConfigExport> => {
         insertTypesEntry: true,
       }),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          quietDeps: true,
+        },
+      },
+    },
     build: {
       lib: {
         entry: path.resolve(__dirname, 'src/lib/index.ts'),

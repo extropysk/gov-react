@@ -15,14 +15,14 @@ const buttonVariants = cva('govuk-button', {
   },
 })
 
-export interface AtButtonProps
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   label: string
   asChild?: boolean
 }
 
-export const AtButton = React.forwardRef<HTMLButtonElement, AtButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, label, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button'
     return (
@@ -32,4 +32,4 @@ export const AtButton = React.forwardRef<HTMLButtonElement, AtButtonProps>(
     )
   },
 )
-AtButton.displayName = 'Button'
+Button.displayName = 'Button'
